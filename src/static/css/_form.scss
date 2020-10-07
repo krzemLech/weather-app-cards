@@ -1,0 +1,102 @@
+// form
+
+.form__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-size: 20px;
+
+  @include tablet {
+      padding-top: 50px;
+  }
+
+  @include tablet-small {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  @include mobile {
+      background-color: rgba(0,0,0, .1);
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      font-size: 16px;
+      padding-top: 20px
+  }
+
+  @include mobile-small {
+      font-size: 12px;
+      padding-top: 10px;
+  }
+
+  fieldset {
+      border: none;
+
+      @include tablet-small {
+          margin-bottom: 20px
+      }
+      @include mobile-small {
+          margin-bottom: 10px
+      }
+  }
+  
+  input, select {
+      width: 200px;
+      border: none;
+      border-bottom: 2px solid black;
+      background-color: transparent;
+      margin: 0 10px;
+      font-size: inherit;
+      outline: none;
+
+      @include mobile {
+          font-size: 14px;
+          }
+      }
+
+  .input__wrapper{
+      display: inline-block;
+      position: relative;
+  
+      &::after {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      content: '';
+      height: 4px;
+      width: 0px;
+      background: linear-gradient(to right, rgb(0, 26, 255), rgb(0, 183, 255), rgb(0, 238, 255));
+      transition: width .2s linear;
+      }
+
+      &:focus-within::after {
+          width: 206px
+      }
+  }
+
+  label {
+      @include mobile {
+          display: block;
+          margin-bottom: 10px;
+      }
+
+      @include mobile-small {
+          margin-bottom: 5px;
+      }
+  }
+
+  label[for=filterCities] {
+      margin-left: 15px;
+
+      @include tablet-small {
+          margin-left: 0;
+      }
+  }
+
+  input {
+      margin-right: 15px;
+      color:  rgb(0, 26, 255)
+  }
+}

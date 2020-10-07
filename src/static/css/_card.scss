@@ -1,0 +1,175 @@
+// cards only, styling for card wrapper in 'app.scss'
+
+.city-card {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.363);
+  color: white;
+
+  transition: all 1s linear;
+  
+
+  // card's position depanding on the current displayed 
+
+  &.current {
+      z-index: 10;
+  }
+
+  &.small--next {
+      transform: translateX(130px) scale(0.8);
+      z-index: 9; 
+
+      @include mobile {
+          transform: translateX(100px) scale(0.7);
+      }
+  }
+
+  &.small--prev {
+      transform: translateX(-130px) scale(0.8);
+      z-index: 9; 
+
+      @include mobile {
+          transform: translateX(-100px) scale(0.7);
+      }
+  }
+
+  &.smaller--next {
+      transform: translateX(250px) scale(0.6);
+      z-index: 8; 
+      opacity: 1;
+  }
+
+  &.smaller--prev {
+      transform: translateX(-250px) scale(0.6);
+      z-index: 8; 
+      opacity: 1
+  }
+
+  &.hidden--next {
+      transform: translateX(300px) scale(0.4);
+      z-index: 1;
+      opacity: 0;
+  }
+
+  &.hidden--prev {
+      transform: translateX(-300px) scale(0.4);
+      z-index: 1;
+      opacity: 0;
+  }
+
+  // elemnts inside the card
+  &__content {
+
+      width: 300px;
+      height: 450px;
+      background-size: 100% 100%;
+
+      box-sizing: border-box;
+      padding: 20px 20px 5px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include mobile {
+          width: 200px;
+          height: 300px;
+      }
+
+      &.clear {
+          background-image: url(../img/sunny2x3.jpg);
+          color: rgb(39, 32, 32);
+      }
+
+      &.clouds {
+          background-image: url(../img/cloudy2x3.jpg);
+      }
+
+      &.rain {
+          background-image: url(../img/rainy2x3.jpg);
+      }
+
+      &.mist{
+          background-image: url(../img/misty2x3.jpg);
+      }
+
+      &.error-index {
+          background-color: white;
+          border: 2px solid red;
+          color: red;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+
+      &.error-load {
+          background-color: white;
+          border: 2px solid rgb(0, 162, 255);
+          color: rgb(0, 162, 255);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          i {
+              animation: rotate 2s linear;
+              animation-iteration-count: infinite;
+
+              @keyframes rotate {
+                  from {transform: rotate(0deg)}
+                  to {transform: rotate(360deg)}
+              }
+          }
+      }
+  }
+
+  &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include mobile {
+          flex-wrap: wrap;
+      }
+
+      h1 {
+          margin: 0;
+
+          @include mobile {
+              font-size: 18px;
+              text-align: left;
+          }
+      }
+
+      p { 
+          margin-top: 10px;
+          margin-bottom: 0px;
+          margin-right: 10px;
+
+          @include mobile {
+              margin-top: 1px;
+              margin-right: 0;
+          }
+      }
+  }
+
+  &__temp {
+      font-size: 35px;
+  }
+
+  &__info {
+      position: relative;
+      // margin: 150px 10px auto;
+      text-align: left;
+
+      @include mobile {
+          font-size: 14px
+      }
+  }
+
+  &__wind_direction {
+      i {transform: rotate(-45deg);};
+      margin: 0 10px;
+  }
+}
